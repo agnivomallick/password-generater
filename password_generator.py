@@ -18,25 +18,30 @@ word_list = {
     "adjectives": [
         "blue", "smelly", "sleepy", "tired", "sad", "fluffy",
         "purple", "proud", "orange", "fat", "thin", "unhappy",
-        "wet", "dry", "brave",
+        "wet", "dry", "brave", "hardworking", "irritating"
     ],
     "nouns": [
         "goat", "panda", "duck", "rat", "human", "hacker", "cracker", "mixer", "toaster",
-        "frock", "dress", "mule", "donkey", "computer", "keyboard"
+        "frock", "dress", "mule", "donkey", "computer", "keyboard", "book", "cobbler",
+        "table", "chair"
+    ],
+    "colors": [
+        "red", "orange", "yellow", "blue", "green", "black", "grey", "brown",
+        "blue"
     ],
 } # all the words from which the password will be generated.
 
-adjective = rand.choice(word_list["adjectives"]) # one adjective
-noun = rand.choice(word_list["nouns"]) # one noun
-number = rand.randrange(0, 200) # any number between 0 and 200
-special_char = rand.choice(st.punctuation) # one special character
+while True:
+    adjective = rand.choice(word_list["adjectives"]) # one adjective
+    noun = rand.choice(word_list["nouns"]) # one noun
+    color = rand.choice(word_list["colors"]) #one color
+    number = rand.randrange(0, 200) # any number between 0 and 200
+    special_char = rand.choice(st.punctuation) # one special character
 
-finalPassword = adjective + noun + str(number) + special_char
+    finalPassword = adjective + noun + color + str(number) + special_char
+    print("Here is your new password! %s" %finalPassword)
 
-print("Here is your new password! %s" %finalPassword)
+    isQuit = input("Do you want another password? Y or N:")
 
-
-quitOut = input("Press q to quit: ")
-
-while quitOut.lower() != "q":
-    pass
+    if isQuit.lower() == "n":
+        break
